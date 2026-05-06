@@ -1,8 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "db/DatabaseManager.hpp"
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
+MainWindow::MainWindow(DatabaseManager& dbManager, QWidget *parent)
+    : m_dbManager(dbManager), QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);

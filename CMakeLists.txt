@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 3.19)
+
+list(APPEND CMAKE_PREFIX_PATH "C:/dev/FinanceTracker/vcpkg_installed/x64-windows")
+
 project(FinanceTracker LANGUAGES CXX)
 
-find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets)
+find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets Charts Sql)
+find_package(PostgreSQL REQUIRED)
 
 qt_standard_project_setup()
 
@@ -11,12 +15,19 @@ qt_add_executable(FinanceTracker
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
+    db/DatabaseManager.hpp
+    db/DatabaseManager.cpp
+    db/migrations/001_initial_schema.sql
+    vcpkg.json
 )
 
 target_link_libraries(FinanceTracker
     PRIVATE
         Qt::Core
         Qt::Widgets
+        Qt::Charts
+        Qt::Sql
+        PostgreSQL::PostgreSQL
 )
 
 install(TARGETS FinanceTracker
