@@ -1,7 +1,7 @@
 #pragma once
 
 #include <QMainWindow>
-#include "db/DatabaseManager.hpp"
+#include "db/DatabaseManager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

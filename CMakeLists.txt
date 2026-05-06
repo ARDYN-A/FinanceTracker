@@ -15,7 +15,7 @@ qt_add_executable(FinanceTracker
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
-    db/DatabaseManager.hpp
+    db/DatabaseManager.h
     db/DatabaseManager.cpp
     db/migrations/001_initial_schema.sql
     vcpkg.json
